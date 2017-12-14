@@ -7,21 +7,21 @@ import thunk from 'redux-thunk'
 import rootReducer from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter  as Router} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+    rootReducer,
+    composeWithDevTools(
+        applyMiddleware(thunk)
+    )
 );
 
 ReactDOM.render(
-    <BrowserRouter>
+    <Router>
         <Provider store={store}>
             <App />
         </Provider>
-    </BrowserRouter>,
-  document.getElementById('root'));
+    </Router>,
+    document.getElementById('root'));
 registerServiceWorker();
